@@ -225,9 +225,9 @@ html { scroll-behavior: smooth; }
 .wedding-site .swatch-feedback { margin-top: 20px; color: var(--muted); font-size: 11px; }
 .wedding-site .swatch-feedback strong { color: var(--ink); font-weight: 500; }
 .wedding-site .attire-examples { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.wedding-site .attire-examples figure { background: #ebece9; }
+.wedding-site .attire-examples figure { background: #e4e2dd; }
 .wedding-site .attire-examples figure > div { display: flex; align-items: center; aspect-ratio: 3/4; overflow: hidden; }
-.wedding-site .attire-examples img { width: 100%; height: 100%; object-fit: contain; transition: filter .3s ease; }
+.wedding-site .attire-examples img { width: 100%; height: 100%; object-fit: contain; transform: scale(1.18); transition: filter .3s ease, transform .3s ease; }
 .wedding-site .attire-examples img.recolor-attire { filter: url(#attire-recolor); }
 .wedding-site .attire-examples figcaption { display: flex; flex-direction: column; min-height: 105px; padding: 19px 20px; background: white; }
 .wedding-site .attire-examples figcaption strong { font-family: var(--font-serif), Georgia, serif; font-size: 24px; font-weight: 400; }

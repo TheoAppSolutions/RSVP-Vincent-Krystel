@@ -41,7 +41,7 @@ export default function Hero() {
           <a href="#gallery" tabIndex={entered ? 0 : -1}>Our story</a>
           <a href="#details" tabIndex={entered ? 0 : -1}>Details</a>
         </div>
-        <button type="button" onClick={goToRsvp} className="nav-rsvp">Reply <span aria-hidden="true">↗</span></button>
+        <button type="button" onClick={goToRsvp} className="nav-rsvp">RSVP <span aria-hidden="true">↗</span></button>
       </nav>
 
       <div className="hero-content">
