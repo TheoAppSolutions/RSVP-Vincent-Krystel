@@ -1,13 +1,14 @@
 "use client";
-import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { MEDIA } from "@/lib/event";
-type Ctx = { playing: boolean; play: () => void; toggle: () => void };
-const MusicCtx = createContext<Ctx>({ playing: false, play: () => {}, toggle: () => {} });
+type Ctx = { playing: boolean; entered: boolean; enter: () => void; play: () => void; toggle: () => void };
+const MusicCtx = createContext<Ctx>({ playing: false, entered: false, enter: () => {}, play: () => {}, toggle: () => {} });
 export const useMusic = () => useContext(MusicCtx);
 
 function Provider({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
+  const [entered, setEntered] = useState(false);
   // One shared Audio instance, created lazily on the first user gesture (never on page load).
   const get = useCallback(() => {
     if (!ref.current) {
@@ -21,12 +22,44 @@ function Provider({ children }: { children: React.ReactNode }) {
   }, []);
   const play = useCallback(() => { get().play().catch(() => setPlaying(false)); }, [get]);
   const toggle = useCallback(() => { const a = get(); if (a.paused) play(); else a.pause(); }, [get, play]);
+  const enter = useCallback(() => {
+    play();
+    setEntered(true);
+  }, [play]);
+
+  useLayoutEffect(() => {
+    const previousRestoration = window.history.scrollRestoration;
+    const resetScroll = () => window.scrollTo(0, 0);
+
+    window.history.scrollRestoration = "manual";
+    resetScroll();
+    window.addEventListener("pageshow", resetScroll);
+
+    return () => {
+      window.removeEventListener("pageshow", resetScroll);
+      window.history.scrollRestoration = previousRestoration;
+    };
+  }, []);
+
+  useLayoutEffect(() => {
+    if (entered) return;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+    const previousBodyOverflow = document.body.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      document.body.style.overflow = previousBodyOverflow;
+    };
+  }, [entered]);
+
   useEffect(() => () => { ref.current?.pause(); }, []);
-  return <MusicCtx.Provider value={{ playing, play, toggle }}>{children}</MusicCtx.Provider>;
+  return <MusicCtx.Provider value={{ playing, entered, enter, play, toggle }}>{children}</MusicCtx.Provider>;
 }
 
 function FloatingButton() {
-  const { playing, toggle } = useMusic();
+  const { playing, entered, toggle } = useMusic();
+  if (!entered) return null;
   return (
     <button type="button" onClick={toggle} aria-label={playing ? "Pause background music" : "Play background music"} aria-pressed={playing}
       className="fixed z-40 bottom-4 right-4 md:right-6 md:bottom-6 h-12 w-12 rounded-full border border-white/50 bg-[#243b45] text-white shadow-lg flex items-center justify-center hover:bg-[#3c5962] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#a68a69]">

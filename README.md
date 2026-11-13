@@ -1,6 +1,6 @@
-# RSVP templates
+# Wedding RSVP
 
-One Next.js app serves three invitation designs and one shared RSVP dashboard.
+The root page displays the wedding invitation and RSVP form. The admin dashboard is available at `/admin`.
 
 ## Run locally
 
@@ -9,8 +9,8 @@ One Next.js app serves three invitation designs and one shared RSVP dashboard.
 3. Run `supabase/schema.sql` in the Supabase SQL editor.
 4. Run `npm run dev`.
 
-Open `/` to choose a design, `/template-1`, `/template-2`, or `/template-3` to view it, and `/admin` for guest responses. All three RSVP forms write to the same Supabase table. The dashboard can filter, export, and delete responses.
+Open `/` for the invitation and `/admin` for guest responses. The RSVP form writes to the shared Supabase table. The dashboard can filter, export, and delete responses.
 
-The invitation components live in `components/template-1`, `components/template-2`, and `components/template-3`. Shared event settings live in `lib/event.ts`, and shared media lives in `public`. Update `lib/event.ts` to change the event details or media paths for all templates.
+The active invitation components live in `components/template-3`. Shared event settings live in `lib/event.ts`, and shared media lives in `public`. Update `lib/event.ts` to change the event details or media paths.
 
 For maps, set `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` and enable Google's Maps Embed API. Set the same environment variables when deploying.

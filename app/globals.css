@@ -121,7 +121,7 @@ html { scroll-behavior: smooth; }
 .wedding-site .section-heading p { color: var(--muted); font-size: 15px; line-height: 1.9; }
 
 /* Cover */
-.wedding-site .hero { position: relative; display: grid; grid-template-rows: auto 1fr auto; min-height: max(760px, calc(100svh - 36px)); overflow: hidden; background: #203842; color: #fff; }
+.wedding-site .hero { position: relative; display: grid; grid-template-rows: auto 1fr auto; height: 100svh; min-height: 0; overflow: hidden; background: #203842; color: #fff; }
 .wedding-site .hero-image { object-fit: cover; object-position: 40% 45%; }
 .wedding-site .hero-shade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, #112c350d 15%, #102c3866 48%, #0b2835d9 100%), linear-gradient(0deg, #0b2638a6, transparent 58%); pointer-events: none; }
 .wedding-site .site-nav { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; width: 100%; height: 80px; border-bottom: 1px solid #ffffff4a; padding: 0 max(48px, calc((100vw - 1320px) / 2)); background: #122c3933; backdrop-filter: blur(4px); }
@@ -135,19 +135,25 @@ html { scroll-behavior: smooth; }
 .wedding-site .nav-rsvp { justify-self: end; display: flex; align-items: center; gap: 25px; border-bottom: 1px solid #e4cba4; padding: 8px 0; transition: color .2s; }
 .wedding-site .nav-rsvp:hover { color: #e4cba4; }
 .wedding-site .nav-rsvp span { font-size: 16px; line-height: 1; }
-.wedding-site .hero-content { position: relative; z-index: 2; display: flex; align-items: center; justify-content: flex-end; width: min(1440px, 100%); margin: 0 auto; padding: 45px 6vw; }
-.wedding-site .hero-copy { width: min(600px, 50%); border-left: 1px solid #ddc5a0; padding: 12px 0 12px 38px; text-shadow: 0 2px 20px #10263378; }
-.wedding-site .hero-kicker { margin: 0 0 27px; color: #e4cba4; font-size: 10px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; }
-.wedding-site .hero h1 { margin: 0; font-family: var(--font-serif), Georgia, serif; font-size: clamp(76px, 7.8vw, 132px); font-weight: 300; letter-spacing: -.065em; line-height: .83; }
+.wedding-site .hero-content { position: relative; z-index: 2; display: flex; align-items: flex-end; justify-content: flex-end; width: min(1440px, 100%); margin: 0 auto; padding: 20px 6vw 30px; }
+.wedding-site .hero-copy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, .8fr); align-items: center; column-gap: 7vw; width: 100%; border-top: 1px solid #ddc5a0; padding: 24px 2vw 12px; text-shadow: 0 2px 20px #10263378; }
+.wedding-site .hero-title-group { grid-column: 1; }
+.wedding-site .hero-details { grid-column: 2; }
+.wedding-site .hero-kicker { margin: 0 0 18px; color: #e4cba4; font-size: 10px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; }
+.wedding-site .hero h1 { margin: 0; font-family: var(--font-serif), Georgia, serif; font-size: clamp(68px, 6.8vw, 108px); font-weight: 300; letter-spacing: -.065em; line-height: .83; }
 .wedding-site .hero h1 > span { display: block; }
 .wedding-site .hero h1 .hero-name-last { display: flex; align-items: baseline; gap: .07em; margin-top: 12px; }
 .wedding-site .hero h1 i { color: #e4cba4; font-size: .58em; font-weight: 300; }
-.wedding-site .hero-invite { max-width: 460px; margin: 31px 0 0; color: #f4f0e9; font-family: var(--font-serif), Georgia, serif; font-size: 24px; font-style: italic; line-height: 1.3; }
-.wedding-site .hero-meta { display: flex; flex-direction: column; gap: 8px; max-width: 350px; margin-top: 32px; border-top: 1px solid #ffffff70; padding-top: 21px; font-size: 10px; font-weight: 500; letter-spacing: .19em; line-height: 1.4; text-transform: uppercase; }
-.wedding-site .primary-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 42px; min-width: 211px; margin-top: 34px; padding: 17px 20px; background: #f5f0e8; color: var(--ink); font-size: 10px; font-weight: 600; letter-spacing: .17em; text-shadow: none; text-transform: uppercase; transition: background .2s, transform .2s; }
+.wedding-site .hero-invite { max-width: 500px; margin: 0 0 20px; color: #f4f0e9; font-family: var(--font-serif), Georgia, serif; font-size: 22px; font-style: italic; line-height: 1.3; }
+.wedding-site .hero-meta { display: flex; flex-direction: column; gap: 8px; max-width: 440px; margin-top: 0; border-top: 1px solid #ffffff70; padding-top: 16px; font-size: 10px; font-weight: 500; letter-spacing: .19em; line-height: 1.4; text-transform: uppercase; }
+.wedding-site .primary-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 42px; width: fit-content; min-width: 211px; margin-top: 22px; padding: 17px 20px; background: #f5f0e8; color: var(--ink); font-size: 10px; font-weight: 600; letter-spacing: .17em; text-shadow: none; text-transform: uppercase; transition: background .2s, transform .2s; }
 .wedding-site .primary-link:hover { background: #fff; transform: translateY(-2px); }
 .wedding-site .primary-link span { font-size: 17px; line-height: 1; }
 .wedding-site .hero-bottom { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; min-height: 76px; border-top: 1px solid #ffffff57; padding: 17px max(48px, calc((100vw - 1320px) / 2)); background: #122c3978; backdrop-filter: blur(4px); font-size: 9px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; }
+.wedding-site .hero-bottom:has(.enter-invitation) { justify-content: center; }
+.wedding-site .enter-invitation { display: inline-flex; align-items: center; gap: 20px; border: 1px solid #e4cba4; padding: 14px 21px; color: #fff; font-size: 9px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; transition: background .2s, color .2s; }
+.wedding-site .enter-invitation:hover { background: #f5f0e8; color: var(--ink); }
+.wedding-site .enter-invitation span:last-child { color: #e4cba4; font-size: 16px; line-height: 1; }
 .wedding-site .hero-bottom > span i { margin: 0 13px; color: #e4cba4; font-size: 8px; font-style: normal; }
 .wedding-site .hero-bottom a { display: flex; align-items: center; gap: 16px; transition: color .2s; }
 .wedding-site .hero-bottom a:hover { color: #e4cba4; }
@@ -172,23 +178,11 @@ html { scroll-behavior: smooth; }
 .wedding-site .split-heading { display: flex; align-items: end; justify-content: space-between; gap: 60px; }
 .wedding-site .split-heading > div { max-width: 730px; }
 .wedding-site .split-heading p { max-width: 300px; margin-bottom: 3px; }
-.wedding-site .venue-layout { display: grid; grid-template-columns: minmax(310px, .78fr) minmax(0, 1.22fr); gap: 32px; align-items: stretch; }
-.wedding-site .venue-list { display: flex; flex-direction: column; }
-.wedding-site .venue-card { display: flex; gap: 24px; width: 100%; border-top: 1px solid var(--line); padding: 32px 18px 32px 4px; text-align: left; transition: background .2s, padding .2s; }
-.wedding-site .venue-card:nth-child(2) { border-bottom: 1px solid var(--line); }
-.wedding-site .venue-card:hover, .wedding-site .venue-card.active { background: #eeece5; padding-left: 18px; }
-.wedding-site .venue-number { padding-top: 2px; color: var(--gold); font-family: var(--font-serif), Georgia, serif; font-size: 25px; }
-.wedding-site .venue-card-content { display: flex; flex: 1; flex-direction: column; align-items: start; }
-.wedding-site .venue-card-content strong { margin-top: 13px; font-family: var(--font-serif), Georgia, serif; font-size: clamp(30px, 3vw, 42px); font-weight: 400; line-height: 1; }
-.wedding-site .venue-card-content > span:not(.eyebrow) { margin-top: 11px; color: var(--muted); font-size: 13px; }
-.wedding-site .venue-card-content em { margin-top: 24px; color: var(--gold); font-size: 10px; font-style: normal; letter-spacing: .16em; text-transform: uppercase; }
-.wedding-site .venue-card-content em span { margin-left: 5px; font-size: 16px; }
-.wedding-site .venue-note { max-width: 310px; margin: auto 0 0; padding: 28px 8px 0; color: var(--muted); font-family: var(--font-serif), Georgia, serif; font-size: 20px; font-style: italic; line-height: 1.25; }
-.wedding-site .venue-map { position: relative; min-height: 520px; border: 9px solid white; background: #e1e2dd; box-shadow: 0 25px 70px #233c4717; }
+.wedding-site .venue-location-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin: 42px 0 18px; }
+.wedding-site .venue-location-heading h3 { margin-top: 9px; font-family: var(--font-serif), Georgia, serif; font-size: clamp(30px, 3.5vw, 44px); font-weight: 400; line-height: 1; }
+.wedding-site .venue-location-heading p { margin-bottom: 3px; color: var(--muted); font-size: 13px; letter-spacing: .06em; }
+.wedding-site .venue-map { position: relative; min-height: 600px; border: 9px solid white; background: #e1e2dd; box-shadow: 0 25px 70px #233c4717; }
 .wedding-site .venue-map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(.25) saturate(.65); }
-.wedding-site .map-directions { position: absolute; bottom: 16px; right: 16px; display: inline-flex; gap: 25px; align-items: center; padding: 16px 18px; background: var(--ink); color: white; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
-.wedding-site .map-directions:hover { background: #3c5962; }
-.wedding-site .map-directions span { font-size: 16px; }
 
 /* Story photographs */
 .wedding-site .gallery-section { background: #eae9e3; }
@@ -332,23 +326,24 @@ html { scroll-behavior: smooth; }
 
 @media (max-width: 1100px) {
   .wedding-site .hero h1 { font-size: clamp(75px, 8vw, 100px); }
-  .wedding-site .hero-copy { width: min(530px, 53%); }
+  .wedding-site .hero-copy { width: 100%; }
 }
 @media (max-width: 800px) {
-  .wedding-site .hero { min-height: max(780px, calc(100svh - 36px)); }
+  .wedding-site .hero { min-height: 0; }
   .wedding-site .hero-image { top: -60px !important; height: calc(100% + 80px) !important; object-position: 29% center; }
   .wedding-site .hero-shade { background: linear-gradient(0deg, #092733f5 0%, #092733c2 34%, #09273327 73%, #09273338 100%); }
   .wedding-site .site-nav { height: 70px; padding: 0 25px; }
   .wedding-site .nav-links { display: none; }
-  .wedding-site .hero-content { align-items: flex-end; justify-content: flex-start; padding: 165px 28px 37px; }
-  .wedding-site .hero-copy { width: min(100%, 550px); border-left: 0; border-top: 1px solid #ddc5a0; padding: 23px 0 0; }
+  .wedding-site .hero-content { align-items: flex-end; justify-content: flex-start; padding: clamp(42px, 15svh, 165px) 28px 20px; }
+  .wedding-site .hero-copy { display: block; width: min(100%, 550px); border-left: 0; border-top: 1px solid #ddc5a0; padding: 23px 0 0; }
+  .wedding-site .hero-title-group, .wedding-site .hero-details { display: block; }
   .wedding-site .hero h1 { font-size: clamp(76px, 12vw, 105px); }
   .wedding-site .hero-bottom { min-height: 64px; padding: 16px 28px; }
 }
 @media (max-width: 560px) {
   .wedding-site .site-nav { grid-template-columns: 1fr auto; padding: 0 22px; }
   .wedding-site .nav-brand { font-size: 30px; }
-  .wedding-site .hero-content { padding: 130px 25px 31px; }
+  .wedding-site .hero-content { padding: clamp(30px, 13svh, 130px) 25px 18px; }
   .wedding-site .hero-kicker { margin-bottom: 21px; font-size: 9px; letter-spacing: .22em; }
   .wedding-site .hero h1 { font-size: clamp(68px, 17vw, 91px); }
   .wedding-site .hero h1 .hero-name-last { margin-top: 9px; }
@@ -372,12 +367,12 @@ html { scroll-behavior: smooth; }
   .wedding-site .countdown-inner { min-height: 160px; }
   .wedding-site .countdown-part { min-width: 78px; padding: 0 11px; }
   .wedding-site .countdown-part strong { font-size: 37px; }
-  .wedding-site .split-heading, .wedding-site .venue-layout, .wedding-site .attire-layout, .wedding-site .details-layout, .wedding-site .gift-layout, .wedding-site .rsvp-section-inner { grid-template-columns: 1fr; }
+  .wedding-site .split-heading, .wedding-site .attire-layout, .wedding-site .details-layout, .wedding-site .gift-layout, .wedding-site .rsvp-section-inner { grid-template-columns: 1fr; }
   .wedding-site .split-heading { display: block; }
   .wedding-site .split-heading p { max-width: 500px; margin-top: 20px; }
-  .wedding-site .venue-layout, .wedding-site .attire-layout, .wedding-site .details-layout, .wedding-site .gift-layout, .wedding-site .rsvp-section-inner { gap: 40px; }
+  .wedding-site .attire-layout, .wedding-site .details-layout, .wedding-site .gift-layout, .wedding-site .rsvp-section-inner { gap: 40px; }
   .wedding-site .venue-map { min-height: 420px; }
-  .wedding-site .venue-note { padding-bottom: 10px; }
+  .wedding-site .venue-location-heading { margin-top: 34px; }
   .wedding-site .photo-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 24vw; }
   .wedding-site .photo-tile-6 { grid-row: span 1; }
   .wedding-site .photo-tile-8 { grid-column: span 1; }
@@ -399,9 +394,9 @@ html { scroll-behavior: smooth; }
   .wedding-site .countdown-part { min-width: 0; flex: 1; padding: 0 5px; }
   .wedding-site .countdown-part strong { font-size: 35px; }
   .wedding-site .countdown-passed { text-align: center; font-size: 32px; }
-  .wedding-site .venue-card { gap: 15px; }
-  .wedding-site .venue-card-content strong { font-size: 33px; }
   .wedding-site .venue-map { min-height: 360px; }
+  .wedding-site .venue-location-heading { display: block; }
+  .wedding-site .venue-location-heading p { margin-top: 10px; }
   .wedding-site .photo-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 33vw; gap: 9px; }
   .wedding-site .photo-tile-1, .wedding-site .photo-tile-6 { grid-row: span 2; }
   .wedding-site .photo-tile-3, .wedding-site .photo-tile-8 { grid-column: span 1; }

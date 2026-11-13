@@ -30,7 +30,7 @@ export default function Hero() {
         <div className="hero-two-photo">
           <Image src={MEDIA.hero} alt={`${EVENT.honoree} embracing outdoors`} fill priority quality={90} sizes="100vw" />
         </div>
-        <span className="hero-two-photo-note">An invitation to celebrate <span aria-hidden="true">✦</span> Tacloban City</span>
+        <span className="hero-two-photo-note">An invitation to celebrate <span aria-hidden="true">✦</span> Pacific Point</span>
 
         <div className="hero-two-panel">
           <div className="hero-two-main">
@@ -39,8 +39,8 @@ export default function Hero() {
             <p className="hero-two-invite">Joyfully invite you to join them as they begin their next chapter together.</p>
           </div>
           <div className="hero-two-details">
-            <p className="hero-two-day">Monday <span aria-hidden="true">/</span> December 2026</p>
-            <div className="hero-two-date"><strong>21</strong><span>1:30 in the afternoon<br />Tacloban City, Philippines</span></div>
+            <p className="hero-two-day">Sunday <span aria-hidden="true">/</span> February 2027</p>
+            <div className="hero-two-date"><strong>14</strong><span>3:00 in the afternoon<br />Pacific Point · Tacloban City</span></div>
             <button type="button" onClick={goToRsvp} className="hero-two-cta">Kindly respond <span aria-hidden="true">↗</span></button>
           </div>
         </div>

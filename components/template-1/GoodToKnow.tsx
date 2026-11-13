@@ -1,4 +1,5 @@
 import { GOOD_TO_KNOW_NOTES as NOTES } from "@/lib/good-to-know";
+import { EVENT } from "@/lib/event";
 
 function NoteCard({ eyebrow, title, body }: (typeof NOTES)[number]) {
   return (
@@ -37,7 +38,7 @@ export default function GoodToKnow() {
         </div>
 
         <div className="mt-10 rounded-[1.5rem] border border-dusty-300 bg-dusty-900 px-6 py-8 text-center text-white shadow-[0_20px_55px_rgba(54,75,93,0.16)] sm:px-10">
-          <p className="text-[10px] uppercase tracking-[0.4em] text-dusty-200">Kindly reply by November 30, 2026</p>
+          <p className="text-[10px] uppercase tracking-[0.4em] text-dusty-200">Kindly reply by {EVENT.rsvpDeadline}</p>
           <p className="mx-auto mt-3 max-w-2xl font-serif text-2xl leading-snug text-white/95 sm:text-3xl">
             Due to limited seating, we can reserve a seat only for guests who confirm their attendance.
           </p>

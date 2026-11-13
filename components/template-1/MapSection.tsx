@@ -15,7 +15,7 @@ export default function MapSection() {
       <div className="mx-auto max-w-6xl">
         <header className="mx-auto max-w-2xl text-center">
           <p className="text-[10px] uppercase tracking-[0.45em] text-dusty-500">Join us in Tacloban City</p>
-          <h2 id="venues-title" className="mt-4 font-serif text-5xl font-light italic text-dusty-800 md:text-6xl">The Venues</h2>
+          <h2 id="venues-title" className="mt-4 font-serif text-5xl font-light italic text-dusty-800 md:text-6xl">The Venue</h2>
           <div className="mt-6 flex items-center justify-center gap-3 text-dusty-400" aria-hidden>
             <span className="h-px w-14 bg-current" />
             <span className="h-2 w-2 rotate-45 border border-current" />

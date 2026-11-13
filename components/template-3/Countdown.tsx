@@ -22,7 +22,7 @@ export default function Countdown() {
   ] as const;
 
   return (
-    <section className="countdown-section" aria-label="Countdown to the wedding">
+    <section id="countdown" className="countdown-section" aria-label="Countdown to the wedding">
       <div className="countdown-inner">
         <p className="countdown-note">The day is drawing near <span aria-hidden="true">✦</span></p>
         {remaining !== null && remaining <= 0 ? (

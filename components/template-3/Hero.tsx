@@ -5,13 +5,28 @@ import { EVENT, MEDIA } from "@/lib/event";
 import { useMusic } from "./MusicPlayer";
 
 export default function Hero() {
-  const { play } = useMusic();
+  const { enter, entered, play } = useMusic();
   const groom = EVENT.groom.split(" ")[0];
   const bride = EVENT.bride.split(" ")[0];
 
   function goToRsvp() {
-    play();
-    document.getElementById("rsvp")?.scrollIntoView({ behavior: "smooth" });
+    if (entered) {
+      play();
+      document.getElementById("rsvp")?.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
+
+    enter();
+    requestAnimationFrame(() => {
+      document.getElementById("rsvp")?.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
+  function enterInvitation() {
+    enter();
+    requestAnimationFrame(() => {
+      document.getElementById("countdown")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   }
 
   return (
@@ -22,32 +37,41 @@ export default function Hero() {
       <nav className="site-nav" aria-label="Main navigation">
         <a href="#top" className="nav-brand" aria-label={`${EVENT.honoree}, top of page`}>{EVENT.initials}</a>
         <div className="nav-links">
-          <a href="#venues">The day</a>
-          <a href="#gallery">Our story</a>
-          <a href="#details">Details</a>
+          <a href="#venues" tabIndex={entered ? 0 : -1}>The day</a>
+          <a href="#gallery" tabIndex={entered ? 0 : -1}>Our story</a>
+          <a href="#details" tabIndex={entered ? 0 : -1}>Details</a>
         </div>
         <button type="button" onClick={goToRsvp} className="nav-rsvp">Reply <span aria-hidden="true">↗</span></button>
       </nav>
 
       <div className="hero-content">
         <div className="hero-copy">
-          <p className="hero-kicker">Together with their families</p>
-          <h1 aria-label={EVENT.honoree}>
-            <span>{groom}</span>
-            <span className="hero-name-last"><i aria-hidden="true">&amp;</i>{bride}</span>
-          </h1>
-          <p className="hero-invite">Joyfully invite you to celebrate their wedding and the beginning of their forever.</p>
-          <div className="hero-meta">
-            <span>{EVENT.dateLong}</span>
-            <span>{EVENT.time} · Tacloban City</span>
+          <div className="hero-title-group">
+            <p className="hero-kicker">Together with their families</p>
+            <h1 aria-label={EVENT.honoree}>
+              <span>{groom}</span>
+              <span className="hero-name-last"><i aria-hidden="true">&amp;</i>{bride}</span>
+            </h1>
           </div>
-          <button type="button" onClick={goToRsvp} className="primary-link">Kindly RSVP <span aria-hidden="true">↗</span></button>
+          <div className="hero-details">
+            <p className="hero-invite">Joyfully invite you to celebrate their wedding and the beginning of their forever.</p>
+            <div className="hero-meta">
+              <span>{EVENT.dateLong}</span>
+              <span>{EVENT.time} · Pacific Point, Tacloban City</span>
+            </div>
+            <button type="button" onClick={goToRsvp} className="primary-link">Kindly RSVP <span aria-hidden="true">↗</span></button>
+          </div>
         </div>
       </div>
 
       <div className="hero-bottom">
-        <span>{EVENT.initials} <i aria-hidden="true">✦</i> 21.12.2026</span>
-        <a href="#venues">Discover the celebration <span aria-hidden="true">↓</span></a>
+        {!entered ? (
+          <button type="button" onClick={enterInvitation} className="enter-invitation">
+            <span>VIEW INVITATION</span><span aria-hidden="true">↓</span>
+          </button>
+        ) : (
+          <a href="#venues">Discover the celebration <span aria-hidden="true">↓</span></a>
+        )}
       </div>
     </header>
   );

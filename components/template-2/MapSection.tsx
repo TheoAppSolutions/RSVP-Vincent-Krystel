@@ -17,7 +17,7 @@ export default function MapSection() {
             <p className="text-[10px] font-medium uppercase tracking-[0.36em] text-dusty-600">01 / The celebration</p>
             <h2 id="venues-title" className="mt-4 font-serif text-5xl font-light leading-none tracking-[-0.035em] text-dusty-900 sm:text-6xl">Where we&apos;ll <em>gather</em></h2>
           </div>
-          <p className="max-w-md text-sm leading-7 text-dusty-700 md:ml-auto">A day of promises and celebration in Tacloban City. Find the ceremony and reception details below.</p>
+          <p className="max-w-md text-sm leading-7 text-dusty-700 md:ml-auto">A day of promises and celebration in Tacloban City. Join us at Pacific Point for the ceremony and reception.</p>
         </div>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-12">
